@@ -1,0 +1,27 @@
+{
+  "name": "Baloo Adventure",
+  "short_name": "Baloo",
+  "description": "Ayuda a Baloo a volar en su avioneta esquivando los pilares",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#3AC8DC",
+  "theme_color": "#3ECFCF",
+  "orientation": "portrait",
+  "lang": "es",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
