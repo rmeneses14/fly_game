@@ -1,12 +1,13 @@
 // ─── Saiph SW — Baloo Adventure ──────────────────────────────────────────────
-const CACHE_NAME = 'baloo-adventure-v1';
+const CACHE_NAME = 'baloo-adventure-v2';
+const BASE = '/fly_game';
 
 const ASSETS = [
-  '/',
-  '/index.html',
-  '/manifest.json',
-  '/icons/icon-192x192.png',
-  '/icons/icon-512x512.png',
+  BASE + '/',
+  BASE + '/index.html',
+  BASE + '/manifest.json',
+  BASE + '/icons/icon-192x192.png',
+  BASE + '/icons/icon-512x512.png',
   'https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Nunito:wght@700;900&display=swap',
 ];
 
@@ -37,7 +38,7 @@ self.addEventListener('fetch', event => {
         const clone = response.clone();
         caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
         return response;
-      });
+      }).catch(() => cached);
     })
   );
 });
