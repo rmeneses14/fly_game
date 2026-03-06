@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Baloo Adventure</title>
-  <link rel="manifest" href="manifest.json" />
+  <link rel="manifest" href="/fly_game/manifest.json" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="theme-color" content="#3ECFCF" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -594,19 +594,18 @@ const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
 const isStandalone = window.matchMedia('(display-mode: standalone)').matches
                   || navigator.standalone === true;
 
-// Android/Chrome: captura el prompt nativo antes de que el browser lo muestre
+// Mostrar botón siempre que la app no esté instalada
+window.addEventListener('load', () => {
+  if (!isStandalone) {
+    document.getElementById('pwa-install-btn').style.display = 'flex';
+  }
+});
+
+// Android/Chrome: captura prompt nativo del sistema
 window.addEventListener('beforeinstallprompt', e => {
   e.preventDefault();
   deferredPrompt = e;
-  document.getElementById('pwa-install-btn').style.display = 'flex';
 });
-
-// iOS Safari: mostrar botón con instrucciones si no está instalada
-if (isIOS && !isStandalone) {
-  window.addEventListener('load', () => {
-    document.getElementById('pwa-install-btn').style.display = 'flex';
-  });
-}
 
 function pwaInstall() {
   if (deferredPrompt) {
