@@ -617,8 +617,10 @@ function pwaInstall() {
         document.getElementById('pwa-install-btn').style.display = 'none';
     });
   } else if (isIOS) {
-    // iOS: no hay API de instalación, mostrar instrucciones
     alert('Para instalar en iPhone/iPad:\n\n1. Toca el ícono Compartir (□↑) en Safari\n2. Selecciona "Añadir a pantalla de inicio"\n3. ¡Listo! Baloo en tu homescreen 🐕✈️');
+  } else {
+    // Android: beforeinstallprompt no llegó aún — instrucciones manuales
+    alert('Para instalar Baloo Adventure:\n\n1. Toca el menú ⋮ (tres puntos) en Chrome\n2. Selecciona "Añadir a pantalla de inicio" o "Instalar app"\n3. ¡Listo! 🐕✈️');
   }
 }
 
